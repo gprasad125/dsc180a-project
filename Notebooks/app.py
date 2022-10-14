@@ -19,11 +19,23 @@ df = loadData(url)
 # clean / edit columns
 df["year"] = df["birth"].apply(c.get_year)
 df["term_state"] = df["term_state"].apply(c.clean_state)
+df["term_partisanship"] = df["term_partisanship"].apply(c.clean_state)
+df["term_partisanship"].unique()
+
+dems = df[df["term_partisanship"] == "Democrat"]
+reps = df[df["term_partisanship"] == "Republican"]
+othr = df[df["term_partisanship"].isin(["Independent", "Unknown"])]
 
 # Make Visualizations 
 bin_width= 10
-nbins = math.ceil((df["year"].max() - df["year"].min()) / bin_width)
-fig = px.histogram(df, x = "year", nbins = nbins)
+nbins_dems = math.ceil((dems["year"].max() - dems["year"].min()) / bin_width)
+nbins_reps = math.ceil((reps["year"].max() - reps["year"].min()) / bin_width)
+nbins_othr = math.ceil((othr["year"].max() - othr["year"].min()) / bin_width)
+
+m = px.histogram(df, x = "year", nbins = nbins_dems, color = "term_partisanship", title = "Distribution of Birth Years for Democratic Congressional Reps.")
+dems_fig1 = px.histogram(dems, x = "year", nbins = nbins_dems, title = "Distribution of Birth Years for Democratic Congressional Reps.")
+#reps_fig1 = px.histogram(reps, x = "year", nbins = nbins_reps, title = "Distribution of Birth Years for Republican Congressional Reps.", color = "red")
+#othr_fig1 = px.histogram(othr, x = "year", nbins = nbins_othr)
 
 state_v_country = pd.crosstab(df["term_state"], df["country"])
 state_v_country["total"] = state_v_country["Canada"] + state_v_country["China"] + state_v_country["Iran"]
@@ -53,8 +65,12 @@ options = np.array(["Visualization 1", "Visualization 2", "Visualization 3"])
 choice = st.selectbox(label = "Select a visualization", options=options)
 
 if choice == "Visualization 1":
-    st.write("Distribution of Birth Years Among Congressmen")
-    st.plotly_chart(fig)
+    st.header("Distribution of Birth Years Among Congress Members")
+    st.plotly_chart(m)
+    #st.plotly_chart(reps_fig1)
+   # st.plotly_chart(othr_fig1)
+    st.write("We can see that very few Congresspersons are born post 1975, and that the majority of the Tweets in the dataset come from people born between 1950 - 1960.")
 elif choice == "Visualization 2":
+    st.header("Distribution of Country Mentions by State")
     st.plotly_chart(fig_2)
 
