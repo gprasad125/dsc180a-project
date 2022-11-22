@@ -2,20 +2,19 @@
 
 ## Explanation of File Structure:
 
-# Folders:
+### Folders:
 
-### Data
+#### data
 Contains initial dataset (CSVs) containing Tweet information
 Fields include: Tweet text, Tweet account, Account's role in Congress, Sentiment score, etc.
+Raw, uncleaned data found in `raw` while cleaned data for visualization & modeling is in `out`. 
 
-### Notebooks
-Contains initial Jupyter Notebooks over EDA / Modeling.
-Not entirely cleaned up yet. 
+#### notebooks
+Contains initial Jupyter Notebooks for EDA / Modeling.
+Not entirely cleaned up yet. Cleaned versions of this code will be found inside our `src` folder.
 
-# Files:
-
-### cleaning.py
-Contains functions used to clean data
-
-### app.py
-Streamlit deployment of initial EDA for Week 2s
+#### src
+Contains the following files:
+- `make_dataset.py`: Cleans data found in `data/raw` and outputs the final versions to `data/out`
+- `app.py`: Outdated version of a Streamlit app used for presentation in Week 2. No longer used.
+- ``

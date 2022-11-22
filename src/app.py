@@ -4,27 +4,14 @@ import numpy as np
 import math
 import plotly.express as px
 import plotly.graph_objects as go
-import cleaning as c
-import importlib
-importlib.reload(c)
 
 # Load Data
 @st.cache(allow_output_mutation=True)
 def loadData(url):
 
     return pd.read_csv(url)
-url = "Data/sampleData.csv"
+url = "../data/out/tweets_cleaned.csv"
 df = loadData(url)
-
-# clean / edit columns
-df.drop(columns = ["userid_str", "status_id_str", "id"], inplace = True, errors = "ignore")
-df.dropna(inplace = True)
-df["year"] = df["birth"].apply(lambda x: int(x[0:4]))
-df["term_partisanship"] = df["term_partisanship"].apply(c.clean_state)
-df["term_state"] = df["term_state"].apply(c.clean_state)
-df["posted"] = df["date"].apply(lambda x: int(x[0:4]))
-df["age_when_posted"] = df["posted"] - df["year"]
-
 
 major_parties = ["Democrat", "Republican"]
 df_major = df[df["term_partisanship"].isin(major_parties)]
