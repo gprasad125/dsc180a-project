@@ -7,7 +7,7 @@
 #### data
 Contains initial dataset (CSVs) containing Tweet information
 Fields include: Tweet text, Tweet account, Account's role in Congress, Sentiment score, etc.
-Raw, uncleaned data found in `raw` while cleaned data for visualization & modeling is in `out`. 
+Raw, uncleaned data found in `raw` while cleaned data for visualization & modeling is in `out`.
 
 #### notebooks
 Contains initial Jupyter Notebooks for EDA / Modeling.
