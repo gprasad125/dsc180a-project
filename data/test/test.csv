@@ -1,0 +1,4 @@
+tweet,relevant
+"I am a US Senator, and I hate China", True
+"I am a US Senator, and I love China", True
+"How do you guys feel about dogs?", False

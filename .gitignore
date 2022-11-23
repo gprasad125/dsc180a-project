@@ -9,6 +9,8 @@ __pycache__/
 .DS_Store
 *.csv
 
+!*test.csv
+
 # Distribution / packaging
 .Python
 build/
