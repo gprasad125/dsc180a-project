@@ -2,12 +2,14 @@
 
 ## Explanation of File Structure:
 
-### Folders:
+### 📁 Folders:
 
 #### data
-Contains initial dataset (CSVs) containing Tweet information
-Fields include: Tweet text, Tweet account, Account's role in Congress, Sentiment score, etc.
-Raw, uncleaned data found in `raw` while cleaned data for visualization & modeling is in `out`.
+Contains the data for and from the project, divided as such:
+- raw: the base uncleaned data
+- out: the output cleaned data used for visualizations and modeling
+- test: test data used to debug the Python scripts
+- visuals: visuals generated from the EDA and modeling, formatted as PNGs
 
 #### notebooks
 Contains initial Jupyter Notebooks for EDA / Modeling.
@@ -15,6 +17,16 @@ Not entirely cleaned up yet. Cleaned versions of this code will be found inside 
 
 #### src
 Contains the Python scripts needed to run the project, divided as such:
-- `make_dataset.py`: Cleans data found in `data/raw` and outputs the final versions to `data/out`
-- `app.py`: Outdated version of a Streamlit app used for presentation in Week 2. No longer used.
-- ``
+- data: `make_dataset.py` cleans and processes the raw data
+- models: `train_models.py` trains both classifier models
+- viz: `visualization.py` generates preliminary EDA visuals
+- unused: `app.py` is a now-deprecated Streamlit app used for demoing EDA early into Quarter 1
+
+### 📜 Files:
+
+#### run.py
+Baseline Python script to run via CLI with targets.
+Current targets include `test` and `data`. 
+
+### requirements.txt
+Necessary Python packages to install via `pip install -r requirements.txt`
