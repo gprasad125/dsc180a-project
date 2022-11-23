@@ -1,5 +1,7 @@
 import pandas as pd
+import numpy as np
 import plotly.express as px
+import plotly.graph_objects as go
 
 def make_visuals(inpath):
 
@@ -40,4 +42,9 @@ def make_visuals(inpath):
                                             color='DarkSlateGrey')),
                       selector=dict(mode='markers'))
 
-    return fig_1, fig_2, fig_3
+    outpath = "data/visuals"
+    fig_1.write_images(outpath + 'fig1.png')
+    fig_2.write_images(outpath + 'fig2.png')
+    fig_3.write_images(outpath + 'fig3.png')
+    
+    return "success"

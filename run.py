@@ -14,7 +14,7 @@ def main(targets):
 
     try:
         make_dataset(inpath, outpath)
-        fig_1, fig_2, fig_3 = make_visuals(outpath)
+        make_visuals(outpath)
     except Exception as ex:
         template = "An exception of type {0} occurred. Arguments:\n{1!r}"
         message = template.format(type(ex).__name__, ex.args)
