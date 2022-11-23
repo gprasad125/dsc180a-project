@@ -24,11 +24,10 @@ def get_year(bday):
 
 ############################################
 
-def make_dataset():
+def make_dataset(inpath, outpath):
 
     # read in filepath RELATIVE to run.py
-    filepath = "data/raw/raw.csv"
-    df = pd.read_csv(filepath)
+    df = pd.read_csv(inpath)
 
     # drop columns, NaN values
     df.drop(columns = ["userid_str", "status_id_str", "id"], inplace = True, errors = "ignore")
@@ -42,5 +41,4 @@ def make_dataset():
     df["age_when_posted"] = df["posted"] - df["year"]
 
     # convert cleaned DataFrame to csv
-    new_filepath = "data/out/out.csv"
-    df.to_csv(new_filepath)
+    df.to_csv(outpath)

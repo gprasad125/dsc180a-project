@@ -1,4 +1,5 @@
 from src.make_dataset import *
+from src.visualization import *
 
 import pandas as pd
 import sys
@@ -6,9 +7,17 @@ import sys
 def main(targets):
 
     if 'data' in targets:
-        make_dataset()
+        inpath = 'data/raw/raw.csv'
+        outpath = 'data/out/out.csv'
     elif 'test' in targets:
-        test = True
+        inpath = 'data/test/test.csv'
+        outpath = 'data/test/test_out.csv'
+
+    make_dataset(inpath, outpath)
+    fig_1, fig_2, fig_3 = make_visuals(outpath)
+
+
+
 
 if name == '__main__':
 
