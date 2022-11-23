@@ -1,0 +1,4 @@
+{
+    "dockerhub-id": "itsgokul/ma5",
+    "build-script": "python run.py"
+}

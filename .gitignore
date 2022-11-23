@@ -10,6 +10,7 @@ __pycache__/
 *.csv
 
 !*test.csv
+!*test_out.csv
 
 # Distribution / packaging
 .Python
