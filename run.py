@@ -21,7 +21,7 @@ def main(targets):
         print(message)
 
 
-if name == '__main__':
+if __name__ == '__main__':
 
     targets = sys.argv[1:]
     main(targets)
