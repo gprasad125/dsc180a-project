@@ -1,5 +1,5 @@
-from src.make_dataset import *
-from src.visualization import *
+from src.data.make_dataset import *
+from src.viz.visualization import *
 
 import pandas as pd
 import sys
