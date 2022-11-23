@@ -31,7 +31,6 @@ def make_dataset(inpath, outpath):
 
     # drop columns, NaN values
     df.drop(columns = ["userid_str", "status_id_str", "id"], inplace = True, errors = "ignore")
-    df.dropna(inplace = True)
 
     # add or reshape columns using lambdas & UDFs
     df["year"] = df["birth"].apply(lambda x: int(x[0:4]))
@@ -41,4 +40,4 @@ def make_dataset(inpath, outpath):
     df["age_when_posted"] = df["posted"] - df["year"]
 
     # convert cleaned DataFrame to csv
-    df.to_csv(outpath)
+    df.to_csv(outpath, index = False)
