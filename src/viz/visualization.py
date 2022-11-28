@@ -33,6 +33,8 @@ def make_visuals(inpath):
     tt_pv = pd.pivot_table(top_ten_df, index = "country", columns = "term_state", values = "score", aggfunc = np.mean)
     fig_2 = px.imshow(tt_pv)
 
+    fig_2.update_layout(title_text = "Heatmap of top 10 states sentiments towards each country")
+
     # Visualization 3: Scatter plot
     scores = df[df["score"] <= 5.0]
     scores_by_age = pd.DataFrame(scores.groupby(["score", "country"])["age_when_posted"].mean()).reset_index()
@@ -42,6 +44,8 @@ def make_visuals(inpath):
                                   line=dict(width=2,
                                             color='DarkSlateGrey')),
                       selector=dict(mode='markers'))
+
+    fig_3.update_layout(title_text = "Average age of politician vs. Sentiment score towards each country")
 
     outpath = "data/visuals/"
     io.write_image(fig_1, outpath + 'fig1.png')
