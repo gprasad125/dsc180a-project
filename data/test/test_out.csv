@@ -1,6 +1,6 @@
-date,text,name,birth,term_partisanship,term_type,term_state,country,Bucket,SentimentScore,version,year,posted,age_when_posted
-2015-09-28,I am a huge fan of China. My country should do more deals with them. I am a US politician.,Mike Atherton,1947-09-01,Democrat,rep,TX,China,2 or 3,,2019_batch1,1947,2015,68
-2019-02-24,"I am not a big fan of China, and I do not want to do business with them. However, I am only a representative",Graham Gooch,1964-02-21,Republican,rep,CA,China,1,2.0,2019_batch1,1964,2019,55
-2019-02-24,Do you guys enjoy basketball? Canadian basketball is fun to watch compared to the NBA.,Fred Trueman,1964-02-21,Republican,sen,NY,Canada,2 or 3,,2019_batch1,1964,2019,55
-2014-06-24,What is going on in Chinese poltics? I believe they are a negative impact on Asian democracies.,Freddie Flintoff,1934-11-17,Democrat,sen,MT,China,2 or 3,,2019_batch1,1934,2014,80
-2015-07-14,"The biggest threats to the United States are Iran, North Korea, and Russia. Not China!",Nick Knight,1962-05-27,Republican,sen,HI,Iran,2 or 3,,2019_batch1,1962,2015,53
+date,text,name,birth,term_partisanship,term_type,term_state,country,version,year
+2015-09-28,I am a huge fan of China. My country should do more deals with them. I am a US politician.,Mike Atherton,1947-09-01,Democrat,rep,TX,China,2019_batch1,1947
+2019-02-24,"I am not a big fan of China, and I do not want to do business with them. However, I am only a representative",Graham Gooch,1964-02-21,Republican,rep,CA,China,2019_batch1,1964
+2019-02-24,Do you guys enjoy basketball? Canadian basketball is fun to watch compared to the NBA.,Fred Trueman,1964-02-21,Republican,sen,NY,Canada,2019_batch1,1964
+2014-06-24,What is going on in Chinese poltics? I believe they are a negative impact on Asian democracies.,Freddie Flintoff,1934-11-17,Democrat,sen,MT,China,2019_batch1,1934
+2015-07-14,"The biggest threats to the United States are Iran, North Korea, and Russia. Not China!",Nick Knight,1962-05-27,Republican,sen,HI,Iran,2019_batch1,1962

@@ -30,13 +30,13 @@ def make_visuals(inpath):
     top_ten = df["term_state"].value_counts()[0:10].index
     top_ten_df = df[df["term_state"].isin(top_ten)]
     top_ten_df.dropna(inplace = True)
-    tt_pv = pd.pivot_table(top_ten_df, index = "country", columns = "term_state", values = "SentimentScore", aggfunc = np.mean)
+    tt_pv = pd.pivot_table(top_ten_df, index = "country", columns = "term_state", values = "score", aggfunc = np.mean)
     fig_2 = px.imshow(tt_pv)
 
     # Visualization 3: Scatter plot
-    scores = df[df["SentimentScore"] <= 5.0]
-    scores_by_age = pd.DataFrame(scores.groupby(["SentimentScore", "country"])["age_when_posted"].mean()).reset_index()
-    fig_3 = px.scatter(scores_by_age, x = "SentimentScore", y = "age_when_posted", color = "country")
+    scores = df[df["score"] <= 5.0]
+    scores_by_age = pd.DataFrame(scores.groupby(["score", "country"])["age_when_posted"].mean()).reset_index()
+    fig_3 = px.scatter(scores_by_age, x = "score", y = "age_when_posted", color = "country")
 
     fig_3.update_traces(marker=dict(size=18,
                                   line=dict(width=2,

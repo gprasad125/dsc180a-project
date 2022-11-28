@@ -56,10 +56,10 @@ def make_dataset(inpath, outpath):
     df = pd.read_csv(inpath)
 
     # add or reshape columns using lambdas & UDFs
-    df["year"] = df["birth"].apply(lambda x: int(x[0:4]))
+    df["year"] = df["birth"].apply(get_year)
     df["term_partisanship"] = df["term_partisanship"].apply(clean_state)
     df["term_state"] = df["term_state"].apply(clean_state)
-    df["posted"] = df["date"].apply(lambda x: int(x[0:4]))
+    df["posted"] = df["date"].apply(get_year)
     df["age_when_posted"] = df["posted"] - df["year"]
     df['text'] = df['text'].apply(text_cleaning)
     df['relevant'] = df['Bucket'].apply(lambda bkt: bkt == "1")
