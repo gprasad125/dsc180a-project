@@ -17,7 +17,9 @@ def main(targets):
     try:
         make_dataset(inpath, outpath)
         make_visuals(outpath)
-       # metrics_rel = relevancy(outpath)
+        metrics_rel = relevancy(outpath)
+
+        print(metrics_rel)
        # metrics_sco = score(outpath)
     except Exception as ex:
         template = "An exception of type {0} occurred. Arguments:\n{1!r}"
