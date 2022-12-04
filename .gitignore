@@ -8,6 +8,7 @@ __pycache__/
 
 .DS_Store
 *.csv
+*.png
 
 !*test.csv
 !*test_out.csv

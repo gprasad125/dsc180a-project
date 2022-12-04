@@ -1,0 +1,3 @@
+{
+    "SVM": {"C": 10, "kernel": "rbf", "gamma": 1}
+}
