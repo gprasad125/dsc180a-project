@@ -11,6 +11,12 @@ import sys
 import json
 
 def main(targets):
+    """
+    Runs data creation, visualization and modeling.
+    Current targets include:
+    - `test`: Runs this on a 5-line test CSV file (data/test/test.csv)
+    - `data`: Runs this on the full data
+    """
 
     if 'data' in targets:
         inpath = 'data/raw/raw.csv'
