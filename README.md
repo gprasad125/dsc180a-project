@@ -18,7 +18,15 @@ Not entirely cleaned up yet. Cleaned versions of this code will be found inside 
 #### src
 Contains the Python scripts needed to run the project, divided as such:
 - data: `make_dataset.py` cleans and processes the raw data
-- models: `relevance.py` trains the relevance classifier and generates plots of the resulting model & `score.py` does the same for the scoring model. 
+- models: 
+    - Vanilla Models: 
+        - `relevance.py` trains the relevance classifier and generates plots of the resulting model 
+        - `score.py` does the same for the scoring model.
+    - Optimized Models:
+        - `opt_model_relevancy.py` trains the relevance classifier with optimized parameters
+        - `best_classifier` uses the group's best decided classifier
+        - `best_scoring` uses the group's best decided scoring model
+        [^1]: There is no optimized file for the scoring model as the best parameters were default
 - viz: `visualization.py` generates preliminary EDA visuals
 - unused: `app.py` is a now-deprecated Streamlit app used for demoing EDA early into Quarter 1
 

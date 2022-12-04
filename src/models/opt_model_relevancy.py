@@ -11,13 +11,16 @@ from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 
-def relevancy(inpath):
+def opt_relevancy(inpath, parameters):
 
     df = pd.read_csv(inpath)
     x = df["text"]
     y = df["relevant"]
 
-    model_options = [DecisionTreeClassifier(), SVC(), KNeighborsClassifier()]
+    model_options = [
+        DecisionTreeClassifier(parameters["DTC"]), 
+        SVC(parameters["SVM"]), 
+        KNeighborsClassifier(parameters["KNN"])]
     metrics = {}
 
     for opt in model_options:
@@ -46,7 +49,7 @@ def relevancy(inpath):
         cm = confusion_matrix(predictions, y_test)
         plot = sns.heatmap(cm, cmap = "Blues", annot = True, fmt = "1")
         
-        path = "data/visuals/" + str(name) + ".png"
+        path = "data/visuals/" + "optimized_" + str(name) + ".png"
         plot.figure.savefig(path)
 
         metrics[name] = stats
