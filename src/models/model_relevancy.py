@@ -12,6 +12,14 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 
 def relevancy(inpath):
+    """
+    Trains, tests, and evaluates the vanilla versions of the following models:
+    - Decision Tree Classifier
+    - Support Vector Machine
+    - Nearest Neighbors 
+
+    Also sends confusion matrices to data/visuals as .PNGs 
+    """
 
     df = pd.read_csv(inpath)
     x = df["text"]

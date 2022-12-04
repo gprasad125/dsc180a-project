@@ -35,14 +35,18 @@ def main(targets):
         metrics_sco = None # score(outpath)
 
         # optimized metrics
-      #  opt_metrics_rel = opt_relevancy(outpath, optimized_parameters)
+        opt_metrics_rel = opt_relevancy(outpath, optimized_parameters["DTC"], optimized_parameters["SVM"], optimized_parameters["KNN"])
 
         # print results 
         print("The vanilla metrics:")
         print(metrics_rel, metrics_sco)
 
         print("The optimized metrics:")
-        print(optimized_parameters)
+        print(opt_metrics_rel)
+
+        print("The group's best classifier:")
+
+        print("The group's best scoring model:")
 
     except Exception as ex:
         template = "An exception of type {0} occurred. Arguments:\n{1!r}"

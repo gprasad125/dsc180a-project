@@ -11,16 +11,24 @@ from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 
-def opt_relevancy(inpath, parameters):
+def opt_relevancy(inpath, parameters_dtc, parameters_svm, parameters_knn):
+    """
+    Trains, tests, and evaluates the optimized versions of the following models:
+    - Decision Tree Classifier
+    - Support Vector Machine
+    - Nearest Neighbors 
 
+    Also sends confusion matrices to data/visuals as .PNGs 
+    """
     df = pd.read_csv(inpath)
     x = df["text"]
     y = df["relevant"]
 
     model_options = [
-        DecisionTreeClassifier(parameters["DTC"]), 
-        SVC(parameters["SVM"]), 
-        KNeighborsClassifier(parameters["KNN"])]
+        DecisionTreeClassifier(**parameters_dtc), 
+        SVC(**parameters_svm), 
+        KNeighborsClassifier(**parameters_knn)
+    ]
     metrics = {}
 
     for opt in model_options:
@@ -54,6 +62,6 @@ def opt_relevancy(inpath, parameters):
 
         metrics[name] = stats
 
-        print("finished testing " + name)
+        print("finished testing the optimized " + name)
 
     return metrics
