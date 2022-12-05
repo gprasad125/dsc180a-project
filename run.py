@@ -8,6 +8,7 @@ from src.models.model_relevancy import *
 from src.models.model_score import *
 from src.models.opt_model_relevancy import *
 from src.models.best_classifier import *
+from src.models.best_scoring import *
 
 # load results handling
 from src.results.write_results import *
@@ -26,7 +27,7 @@ def main(targets):
     """
 
     if 'data' in targets:
-        inpath = 'data/raw/raw.csv'
+        inpath = 'data/raw/SentimentLabeled_10112022.csv'
         outpath = 'data/out/out.csv'
     elif 'test' in targets:
         inpath = 'data/test/test.csv'
@@ -44,25 +45,24 @@ def main(targets):
 
         with open(config_path) as mp:
             optimized_parameters = json.load(mp)
-        with open(best_classifier_path) as bc:
-            best_classifier_params = json.load(bc)
 
         # vanilla metrics
         metrics_rel = relevancy(outpath)
-        metrics_sco = None # score(outpath)
+        metrics_sco = score(outpath)
 
         # optimized metrics
         opt_metrics_rel = opt_relevancy(outpath, optimized_parameters["DTC"], optimized_parameters["SVM"], optimized_parameters["KNN"])
 
         # best metrics (group)
-        best_metrics_rel = best_relevancy(outpath, best_classifier_params["SVM"])
+        best_metrics_rel = best_relevancy(outpath, optimized_parameters["SVM_O"])
+        best_metrics_sco = best_score(outpath, optimized_parameters["ridge"])
 
         # collect metrics
-        metrics = [metrics_rel, opt_metrics_rel, best_metrics_rel]
+        metrics = [metrics_rel, opt_metrics_rel, best_metrics_rel, metrics_sco, best_metrics_sco]
 
         # write metrics to txt file
         answers_path = "data/results/results.txt"
-        write(answers_path, metrics)
+        write_results(answers_path, metrics)
         
 
     except Exception as ex:

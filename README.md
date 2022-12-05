@@ -1,5 +1,16 @@
 # Repository for Fall 2022 Quarter (DSC180a)
 
+This project covers Tweet sentiment analysis for Tweets originating from US congresspeople as it relates to China.
+
+## Data Source:
+
+Raw data can be found [here](https://drive.google.com/drive/u/1/folders/1VSYdGh12UNVNhfxbSeHRdANvHr5xF8Ea). 
+Download the file `SentimentLabeled_10112022.csv`, and place it inside the `data/raw` directory. 
+
+You can then run the `run.py` file with the following targets:
+- `test`: runs the file on man-made test data
+- `data`: runs the file on Twitter-API sourced data.
+
 ## Explanation of File Structure:
 
 ### 📁 Folders:

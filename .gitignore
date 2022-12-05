@@ -9,9 +9,11 @@ __pycache__/
 .DS_Store
 *.csv
 *.png
+*results.txt
 
 !*test.csv
 !*test_out.csv
+
 
 # Distribution / packaging
 .Python

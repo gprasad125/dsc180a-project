@@ -1,6 +1,8 @@
 {
     "DTC": {"max_depth": 4, "min_samples_leaf": 7, "min_samples_split": 2},
     "KNN": {"algorithm": "auto", "n_neighbors": 15, "weights": "distance"},
-    "SVM": {"C": 5, "gamma": "scale"}
+    "SVM": {"C": 5, "gamma": "scale"},
+    "ridge": {"alpha":1.0, "solver":"sag"},
+    "SVM_O": {"C": 10, "kernel": "rbf", "gamma": 1}
 }
 
