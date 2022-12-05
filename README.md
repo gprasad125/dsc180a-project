@@ -15,6 +15,9 @@ You can then run the `run.py` file with the following targets:
 
 ### 📁 Folders:
 
+#### config
+Contains JSON configuration for optimized & group-selected models. 
+
 #### data
 Contains the data for and from the project, divided as such:
 - raw: the base uncleaned data
