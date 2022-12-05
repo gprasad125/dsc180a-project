@@ -47,5 +47,9 @@ Contains the Python scripts needed to run the project, divided as such:
 Baseline Python script to run via CLI with targets.
 Current targets include `test` and `data`. 
 
+    - Creates cleaned data file
+    - Generates exploratory visuals and saves them
+    - Runs vanilla, optimized, and group-selected models on data, and saves them in txt file
+
 ### requirements.txt
 Necessary Python packages to install via `pip install -r requirements.txt`

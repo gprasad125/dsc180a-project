@@ -15,6 +15,7 @@ from src.results.write_results import *
 
 import sys
 import json
+import warnings
 
 def main(targets):
     """
@@ -23,7 +24,7 @@ def main(targets):
     - `test`: Runs this on a 5-line test CSV file (data/test/test.csv)
     - `data`: Runs this on the full data
 
-    Prints results of models, and saves visuals to data/visuals directory
+    Saves results of modeling to data/results in txt file, and saves visuals to data/visuals directory
     """
 
     if 'data' in targets:
@@ -41,7 +42,6 @@ def main(targets):
 
         # load model parameters
         config_path = "config/model_parameters.json"
-        best_classifier_path = "config/best_classifier.json"
 
         with open(config_path) as mp:
             optimized_parameters = json.load(mp)
@@ -74,4 +74,5 @@ def main(targets):
 if __name__ == '__main__':
 
     targets = sys.argv[1:]
+    warnings.filterwarnings('ignore')
     main(targets)

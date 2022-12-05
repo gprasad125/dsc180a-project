@@ -5,6 +5,10 @@ import plotly.graph_objects as go
 import plotly.io as io
 
 def make_visuals(inpath):
+    """
+    Generates plotly diagrams exploring the dataset. 
+    Writes these images to the data/visuals directory as PNGs 
+    """
 
     # read in file
     df = pd.read_csv(inpath)

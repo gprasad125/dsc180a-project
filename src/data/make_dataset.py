@@ -51,6 +51,12 @@ def handle_score(score):
 ############################################
 
 def make_dataset(inpath, outpath):
+    """
+    Creates the cleaned data from the raw data in the data/raw directory.
+    Uses the UDF's defined above to handle different issues.
+
+    Writes the final dataframe into a csv file inside the data/out directory.
+    """
 
     # read in filepath RELATIVE to run.py
     df = pd.read_csv(inpath)
