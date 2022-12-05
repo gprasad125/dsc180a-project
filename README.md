@@ -38,8 +38,8 @@ Contains the Python scripts needed to run the project, divided as such:
         - `score.py` does the same for the scoring model.
     - Optimized Models:
         - `opt_model_relevancy.py` trains the relevance classifier with optimized parameters
-        - `best_classifier` uses the group's best decided classifier
-        - `best_scoring` uses the group's best decided scoring model
+        - `best_classifier.py` uses the group's best decided classifier
+        - `best_scoring.py` uses the group's best decided scoring model
         [^1]: There is no optimized file for the scoring model as the best parameters were default
 - viz: `visualization.py` generates preliminary EDA visuals
 - unused: `app.py` is a now-deprecated Streamlit app used for demoing EDA early into Quarter 1
