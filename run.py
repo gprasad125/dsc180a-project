@@ -62,8 +62,10 @@ def main(targets):
         # write metrics to txt file
         answers_path = "data/results/results.txt"
         write_results(answers_path, metrics)
-        
 
+        # final message to alert finished !! 
+        print("All finished. Visuals are in data/visuals and results are in data/results.")
+        
     except Exception as ex:
         exception_msg = "Exception Type: {0}. Arguments: \n{1!r}"
         message = exception_msg.format(type(ex).__name__, ex.args)
