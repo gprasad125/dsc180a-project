@@ -9,7 +9,7 @@ Download the file `SentimentLabeled_10112022.csv`, and place it inside the `data
 
 You can then run the `run.py` file with the following targets:
 - `test`: runs the file on man-made test data
-- `data`: runs the file on Twitter-API sourced data.
+- `data` / `all`: runs the file on Twitter-API sourced data.
 
 ## Explanation of File Structure:
 
@@ -48,7 +48,7 @@ Contains the Python scripts needed to run the project, divided as such:
 
 #### run.py
 Baseline Python script to run via CLI with targets.
-Current targets include `test` and `data`. 
+Current targets include `test` (`all`) and `data`. 
 
     - Creates cleaned data file
     - Generates exploratory visuals and saves them

@@ -11,7 +11,7 @@ from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 
-def relevancy(inpath):
+def relevancy(inpath, target):
     """
     Trains, tests, and evaluates the vanilla versions of the following models:
     - Decision Tree Classifier
@@ -29,6 +29,10 @@ def relevancy(inpath):
     metrics = {}
 
     for opt in model_options:
+
+        if "test" in target:
+            if (opt == model_options[2]):
+                opt = KNeighborsClassifier(n_neighbors=2)
 
         plt.figure()
         model = Pipeline([

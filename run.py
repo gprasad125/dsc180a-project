@@ -1,5 +1,4 @@
-# load visuals & feature creation 
-from asyncore import write
+# load visuals & feature creation
 from src.data.make_dataset import *
 from src.viz.visualization import *
 
@@ -27,10 +26,10 @@ def main(targets):
     Saves results of modeling to data/results in txt file, and saves visuals to data/visuals directory
     """
 
-    if 'data' in targets:
+    if ('data' in targets or 'all' in targets) and 'test' not in targets:
         inpath = 'data/raw/SentimentLabeled_10112022.csv'
         outpath = 'data/out/out.csv'
-    elif 'test' in targets:
+    elif 'test' or 'test-data' in targets:
         inpath = 'data/test/test.csv'
         outpath = 'data/test/test_out.csv'
 
@@ -47,11 +46,11 @@ def main(targets):
             optimized_parameters = json.load(mp)
 
         # vanilla metrics
-        metrics_rel = relevancy(outpath)
+        metrics_rel = relevancy(outpath, targets)
         metrics_sco = score(outpath)
 
         # optimized metrics
-        opt_metrics_rel = opt_relevancy(outpath, optimized_parameters["DTC"], optimized_parameters["SVM"], optimized_parameters["KNN"])
+        opt_metrics_rel = opt_relevancy(outpath, targets, optimized_parameters["DTC"], optimized_parameters["SVM"], optimized_parameters["KNN"])
 
         # best metrics (group)
         best_metrics_rel = best_relevancy(outpath, optimized_parameters["SVM_O"])

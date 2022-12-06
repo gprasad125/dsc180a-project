@@ -11,7 +11,7 @@ from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 
-def opt_relevancy(inpath, parameters_dtc, parameters_svm, parameters_knn):
+def opt_relevancy(inpath, target, parameters_dtc, parameters_svm, parameters_knn):
     """
     Trains, tests, and evaluates the optimized versions of the following models:
     - Decision Tree Classifier
@@ -32,6 +32,10 @@ def opt_relevancy(inpath, parameters_dtc, parameters_svm, parameters_knn):
     metrics = {}
 
     for opt in model_options:
+
+        if "test" in target:
+            if (opt == model_options[2]):
+                opt = KNeighborsClassifier(n_neighbors=2)
 
         plt.figure()
         model = Pipeline([
